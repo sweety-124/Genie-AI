@@ -2,11 +2,13 @@
 import * as z from "zod";
 import Heading from "@/components/heading";
 import { MessageSquare } from "lucide-react";
-import { Form, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { formSchema } from "./constants";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { log } from "console";
-import { FormControl, FormField, FormItem } from "@/components/ui/form";
+
+import { Form,FormControl, FormField, FormItem } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const Conversation = () => {
     const form = useForm<z.infer<typeof formSchema>>({
@@ -15,10 +17,14 @@ const Conversation = () => {
             prompt:""
         }
     });
+    if (!form) {
+        // If form is not available yet, you can handle it here
+        return null;
+      }
 
     const isLoading = form.formState.isSubmitting;
     const onSubmit = async (values:z.infer<typeof formSchema>)=>{
-        log(values);
+        console.log(values);
     }
     return ( 
         <div>
@@ -27,7 +33,7 @@ const Conversation = () => {
           icon={MessageSquare}
           iconColor="text-violet-500"
           bgColor="bg-violet-500/10"/>
-          <div className=" px-4 lg:px-8">
+          <div className="px-4 lg:px-8">
                 <div>
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)}
@@ -38,15 +44,21 @@ const Conversation = () => {
                         gap-2">
                             <FormField name="prompt" render={({field})=>(
                                 <FormItem className="col-span-12 lg:col-span-10">
-                                    <FormControl>
-                                        
+                                    <FormControl className="m-0 p-0">
+                                       <Input className="border-0 outline-none focus-visible:ring-0 
+                                       focus-visible:ring-transparent" disabled={isLoading} placeholder="How do I calaculate the radius of circle" {...field}/>
                                     </FormControl>
 
                                 </FormItem>
-                            )}/>
+                            )}
+                            />
+                            <Button className="col-span-12 lg:col-span-12">Generate</Button>
                         </form>
                             
                     </Form>
+                </div>
+                <div className="space-y-4 mt-4">
+                        Messages Content
                 </div>
           </div>
         </div>
