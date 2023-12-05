@@ -1,8 +1,7 @@
 {
   "/(landing)/page": "app/(landing)/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/(dashboard)/(routes)/code/page": "app/(dashboard)/(routes)/code/page.js",
-  "/(dashboard)/(routes)/conversation/page": "app/(dashboard)/(routes)/conversation/page.js",
+  "/(auth)/(routes)/sign-in/[[...sign-in]]/page": "app/(auth)/(routes)/sign-in/[[...sign-in]]/page.js",
   "/(dashboard)/(routes)/dashboard/page": "app/(dashboard)/(routes)/dashboard/page.js",
-  "/(auth)/(routes)/sign-in/[[...sign-in]]/page": "app/(auth)/(routes)/sign-in/[[...sign-in]]/page.js"
+  "/(dashboard)/(routes)/code/page": "app/(dashboard)/(routes)/code/page.js",
+  "/(dashboard)/(routes)/conversation/page": "app/(dashboard)/(routes)/conversation/page.js"
 }
