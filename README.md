@@ -1,3 +1,8 @@
+
+![image](https://github.com/sweety-124/my-genie-ai/assets/59157591/da3083f6-3435-49c6-bc19-1a234dc73295)
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
